@@ -1,0 +1,20 @@
+<h1>Air Camera</h1>
+
+<%= link_to '投稿する', new_item_path %>
+
+<div id="grid">
+<ul>
+  <% @items.each do |item| %>
+  <li>
+    <%= item.title %>
+    <%= link_to item.video_url.to_s do %>
+      <%= image_tag(item.video_url(:screenshot).to_s, id: "video", :alt => "screenshot") %>
+    <% end %>
+    <%= link_to '詳細', item %>
+    <%= link_to '編集', edit_item_path(item) %>
+    <%= link_to '削除', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+  <% end %>
+</ul>
+</div>
+

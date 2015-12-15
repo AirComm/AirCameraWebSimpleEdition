@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+
+  root 'items#index'
+  # root 'apis#index'
+
+  resources :items
+
+  mount API => '/'
+  # mount API::Base => '/'
+
+  # resources :apis
+
+  # get '/api' => 'apis#index'
+
+  # get '/api/SITE=:site/AREA=:area/SIZE=:size' => 'apis#index'
+  
+
+  # get "item/:id" => "item#show", format: false
+  # mount ItemAPI => "/"
+  # mount AirCamera::API => '/'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

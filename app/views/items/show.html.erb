@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>動画:</strong>
+  <!-- <%= @item.video %> -->
+  <!-- <%= link_to :video, @item.video_url.to_s, id: "video" %> -->
+
+</p>
+<p>
+  <%= link_to @item.video_url.to_s do %>
+      <%= image_tag(@item.video_url(:screenshot).to_s, id: "video", :alt => "screenshot") %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

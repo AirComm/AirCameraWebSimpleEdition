@@ -1,0 +1,26 @@
+module AirCamera
+  class API < Grape::API
+    # version 'v1', using: :header, vendor: 'twitter'
+    version 'v1', using: :path
+    format :json
+    prefix :api
+ 
+    # helpers do
+    #   def current_user
+    #     @current_user ||= User.authorize!(env)
+    #   end
+ 
+    #   def authenticate!
+    #     error!('401 Unauthorized', 401) unless current_user
+    #   end
+    # end
+ 
+    resource :items do
+      desc "Return a public timeline."
+      get :items_all do
+        Item.all
+      end 
+    end
+
+  end
+end
